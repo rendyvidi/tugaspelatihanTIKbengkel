@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bengkel Jaya Motor & Auto - Menu Layanan</title>
+  <!-- Menghubungkan ke file CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <div class="brand">
+        <span class="logo-icon">🔧</span>
+        <div>
+          <h1>JAYA MOTOR & AUTO</h1>
+          <p>Spesialis Servis & Perawatan Kendaraan</p>
+        </div>
+      </div>
+      <button id="btn-cart" class="cart-btn">
+        🛒 Estimasi (<span id="cart-count">0</span>)
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero & Pencarian -->
+  <section class="hero">
+    <div class="container">
+      <h2>Daftar Menu Layanan & Estimasi Biaya</h2>
+      <p>Pilih jenis perawatan kendaraan Anda untuk melihat estimasi waktu dan biaya secara transparan.</p>
+      
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Cari layanan (contoh: oli, rem, aki, tune up)..." />
+      </div>
+
+      <!-- Tombol Filter Kategori -->
+      <div class="filter-buttons" id="filter-container">
+        <button class="filter-btn active" data-category="semua">Semua Layanan</button>
+        <button class="filter-btn" data-category="mesin">Mesin & Oli</button>
+        <button class="filter-btn" data-category="kaki">Kaki-kaki & Ban</button>
+        <button class="filter-btn" data-category="kelistrikan">Kelistrikan</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daftar Menu Layanan -->
+  <main class="container">
+    <div id="service-grid" class="service-grid">
+      <!-- Kartu layanan akan dimuat otomatis oleh JavaScript -->
+    </div>
+  </main>
+
+  <!-- Modal Keranjang Estimasi & Booking -->
+  <div id="cart-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Rincian Estimasi Servis</h3>
+        <button id="close-modal" class="close-btn">&times;</button>
+      </div>
+
+      <div id="cart-items" class="cart-items">
+        <p class="empty-msg">Belum ada layanan yang dipilih.</p>
+      </div>
+
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Estimasi Waktu:</span>
+          <strong id="total-time">0 Menit</strong>
+        </div>
+        <div class="summary-row total">
+          <span>Total Biaya:</span>
+          <strong id="total-price">Rp 0</strong>
+        </div>
+      </div>
+
+      <form id="booking-form" class="booking-form">
+        <h4>Data Booking Servis</h4>
+        <input type="text" id="customer-name" placeholder="Nama Lengkap" required />
+        <input type="text" id="vehicle-type" placeholder="Jenis Kendaraan (cth: Honda Vario / Avanza)" required />
+        <input type="date" id="booking-date" required />
+        <button type="submit" class="submit-btn">Buat Jadwal Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Menghubungkan ke file JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
