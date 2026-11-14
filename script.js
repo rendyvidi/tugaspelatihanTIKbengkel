@@ -1,5 +1,4 @@
-// DATA MENU BENGKEL
-// Untuk memakai foto sendiri: simpan foto di folder yang sama, lalu ganti link https://... dengan nama file (contoh: "oli.jpg")
+// Data Menu Layanan Bengkel + Tautan Foto
 const services = [
   {
     id: 1,
@@ -67,6 +66,7 @@ let cart = [];
 let currentCategory = "semua";
 let searchQuery = "";
 
+// Elemen DOM
 const serviceGrid = document.getElementById("service-grid");
 const filterBtns = document.querySelectorAll(".filter-btn");
 const searchInput = document.getElementById("search-input");
@@ -79,10 +79,12 @@ const totalTimeEl = document.getElementById("total-time");
 const totalPriceEl = document.getElementById("total-price");
 const bookingForm = document.getElementById("booking-form");
 
+// Format Rupiah
 function formatRupiah(angka) {
   return "Rp " + angka.toLocaleString("id-ID");
 }
 
+// Render Daftar Layanan
 function renderServices() {
   const filtered = services.filter((item) => {
     const matchCategory = currentCategory === "semua" || item.category === currentCategory;
@@ -93,7 +95,7 @@ function renderServices() {
   });
 
   if (filtered.length === 0) {
-    serviceGrid.innerHTML = `<p style="color:#a3a3a3;">Layanan tidak ditemukan.</p>`;
+    serviceGrid.innerHTML = `<p style="color:#9ca3af;">Layanan tidak ditemukan.</p>`;
     return;
   }
 
@@ -120,6 +122,7 @@ function renderServices() {
     .join("");
 }
 
+// Tambah Layanan ke Keranjang
 function addToCart(id) {
   const selected = services.find((s) => s.id === id);
   if (selected) {
@@ -128,11 +131,13 @@ function addToCart(id) {
   }
 }
 
+// Hapus Item dari Keranjang
 function removeFromCart(index) {
   cart.splice(index, 1);
   updateCartUI();
 }
 
+// Perbarui Tampilan Modal Keranjang
 function updateCartUI() {
   cartCount.textContent = cart.length;
 
@@ -166,6 +171,7 @@ function updateCartUI() {
   totalPriceEl.textContent = formatRupiah(totalPrice);
 }
 
+// Event Listener Filter Kategori
 filterBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     filterBtns.forEach((b) => b.classList.remove("active"));
@@ -175,18 +181,17 @@ filterBtns.forEach((btn) => {
   });
 });
 
+// Event Listener Pencarian
 searchInput.addEventListener("input", (e) => {
   searchQuery = e.target.value;
   renderServices();
 });
 
+// Buka & Tutup Modal
 btnCart.addEventListener("click", () => cartModal.classList.remove("hidden"));
 closeModal.addEventListener("click", () => cartModal.classList.add("hidden"));
 
-
-// GANTI DENGAN ALAMAT EMAIL BENGKEL ANDA
-const EMAIL_BENGKEL = "kimukmukamuki@gmail.com";
-
+// Submit Booking
 bookingForm.addEventListener("submit", (e) => {
   e.preventDefault();
   if (cart.length === 0) {
@@ -207,3 +212,6 @@ bookingForm.addEventListener("submit", (e) => {
   bookingForm.reset();
   cartModal.classList.add("hidden");
 });
+
+// Jalankan Render Awal
+renderServices();
