@@ -185,7 +185,7 @@ closeModal.addEventListener("click", () => cartModal.classList.add("hidden"));
 
 
 // GANTI DENGAN ALAMAT EMAIL BENGKEL ANDA
-const EMAIL_BENGKEL = "bengkeljayamotor@gmail.com";
+const EMAIL_BENGKEL = "kimukmukamuki@gmail.com";
 
 bookingForm.addEventListener("submit", (e) => {
   e.preventDefault();
