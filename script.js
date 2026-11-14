@@ -194,47 +194,16 @@ bookingForm.addEventListener("submit", (e) => {
     return;
   }
 
-  // Ambil data dari form
   const name = document.getElementById("customer-name").value;
-  const email = document.getElementById("customer-email").value;
-  const phone = document.getElementById("customer-phone").value;
   const vehicle = document.getElementById("vehicle-type").value;
   const date = document.getElementById("booking-date").value;
 
-  // Susun daftar layanan & hitung total
-  const daftarLayanan = cart
-    .map((item, i) => `${i + 1}. ${item.name} (${formatRupiah(item.price)})`)
-    .join("\n");
-  const totalBiaya = cart.reduce((sum, item) => sum + item.price, 0);
-  const totalWaktu = cart.reduce((sum, item) => sum + item.duration, 0);
+  alert(
+    `Booking Berhasil!\n\nNama: ${name}\nKendaraan: ${vehicle}\nTanggal: ${date}\nJumlah Layanan: ${cart.length} item`
+  );
 
-  // Buat Judul & Isi Email Otomatis
-  const subjek = `Booking Servis Baru - ${name} (${vehicle})`;
-  const isiEmail = `Halo Bengkel Jaya Motor, saya ingin melakukan booking servis dengan rincian berikut:
-
-DATA PELANGGAN
-- Nama: ${name}
-- Email: ${email}
-- No. WhatsApp: ${phone}
-- Kendaraan: ${vehicle}
-- Tanggal Booking: ${date}
-
-LAYANAN YANG DIPILIH
-${daftarLayanan}
-
-Estimasi Waktu: ${totalWaktu} Menit
-Total Estimasi Biaya: ${formatRupiah(totalBiaya)}
-
-Terima kasih.`;
-
-  // Buka aplikasi email secara langsung
-  const mailtoLink = `mailto:${EMAIL_BENGKEL}?subject=${encodeURIComponent(subjek)}&body=${encodeURIComponent(isiEmail)}`;
-  window.location.href = mailtoLink;
-
-  // Kosongkan keranjang dan tutup tampilan form
   cart = [];
   updateCartUI();
   bookingForm.reset();
   cartModal.classList.add("hidden");
 });
-renderServices();
