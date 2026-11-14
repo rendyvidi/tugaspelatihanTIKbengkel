@@ -1,4 +1,5 @@
-// DATA SEMUA LAYANAN BENGKEL
+// DATA MENU BENGKEL
+// Untuk memakai foto sendiri: simpan foto di folder yang sama, lalu ganti link https://... dengan nama file (contoh: "oli.jpg")
 const services = [
   {
     id: 1,
@@ -82,7 +83,6 @@ function formatRupiah(angka) {
   return "Rp " + angka.toLocaleString("id-ID");
 }
 
-// Fungsi menampilkan semua layanan
 function renderServices() {
   const filtered = services.filter((item) => {
     const matchCategory = currentCategory === "semua" || item.category === currentCategory;
@@ -154,7 +154,7 @@ function updateCartUI() {
         <div class="cart-item">
           <div>
             <strong>${item.name}</strong><br />
-            <small>${formatRupiah(item.price)} •${item.duration} mnt</small>
+            <small>${formatRupiah(item.price)} • ${item.duration} mnt</small>
           </div>
           <button class="remove-btn" onclick="removeFromCart(${idx})">Hapus</button>
         </div>
@@ -195,7 +195,7 @@ bookingForm.addEventListener("submit", (e) => {
   const date = document.getElementById("booking-date").value;
 
   alert(
-    `Booking Berhasil!\n\nNama: ${name}\nKendaraan:${vehicle}\nTanggal: ${date}\nJumlah Layanan:${cart.length} item`
+    `Booking Berhasil!\n\nNama: ${name}\nKendaraan: ${vehicle}\nTanggal: ${date}\nJumlah Layanan: ${cart.length} item`
   );
 
   cart = [];
@@ -204,5 +204,4 @@ bookingForm.addEventListener("submit", (e) => {
   cartModal.classList.add("hidden");
 });
 
-// Baris wajib agar semua layanan langsung muncul saat halaman dibuka:
 renderServices();
