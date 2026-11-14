@@ -48,6 +48,14 @@
     <div id="service-grid" class="service-grid"></div>
   </main>
 
+  <!-- Footer Info Kontak Bengkel -->
+  <footer class="footer">
+    <div class="container">
+      <p><strong>JAYA MOTOR & AUTO</strong> — Spesialis Servis & Perawatan Kendaraan</p>
+      <p>Email Resmi: <a href="mailto:bengkeljayamotor@gmail.com">bengkeljayamotor@gmail.com</a></p>
+    </div>
+  </footer>
+
   <!-- Modal Keranjang & Booking -->
   <div id="cart-modal" class="modal hidden">
     <div class="modal-content">
@@ -71,9 +79,12 @@
         </div>
       </div>
 
+      <!-- Form Lengkap (Sudah di dalam Modal) -->
       <form id="booking-form" class="booking-form">
         <h4>Data Booking Servis</h4>
         <input type="text" id="customer-name" placeholder="Nama Lengkap" required />
+        <input type="email" id="customer-email" placeholder="Email Anda" required />
+        <input type="tel" id="customer-phone" placeholder="Nomor WhatsApp" required />
         <input type="text" id="vehicle-type" placeholder="Jenis Kendaraan (cth: Vario 160 / Avanza)" required />
         <input type="date" id="booking-date" required />
         <button type="submit" class="submit-btn">Buat Jadwal Booking</button>
@@ -84,13 +95,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-<form id="booking-form" class="booking-form">
-        <h4>Data Booking Servis</h4>
-        <input type="text" id="customer-name" placeholder="Nama Lengkap" required />
-        <input type="email" id="customer-email" placeholder="Email Anda" required />
-        <input type="tel" id="customer-phone" placeholder="Nomor WhatsApp" required />
-        <input type="text" id="vehicle-type" placeholder="Jenis Kendaraan (cth: Vario 160 / Avanza)" required />
-        <input type="date" id="booking-date" required />
-        <button type="submit" class="submit-btn">Buat Jadwal Booking</button>
-      </form>
