@@ -1,4 +1,4 @@
-// Data Menu Layanan Bengkel + Tautan Foto
+// DATA SEMUA LAYANAN BENGKEL
 const services = [
   {
     id: 1,
@@ -66,7 +66,6 @@ let cart = [];
 let currentCategory = "semua";
 let searchQuery = "";
 
-// Elemen DOM
 const serviceGrid = document.getElementById("service-grid");
 const filterBtns = document.querySelectorAll(".filter-btn");
 const searchInput = document.getElementById("search-input");
@@ -79,12 +78,11 @@ const totalTimeEl = document.getElementById("total-time");
 const totalPriceEl = document.getElementById("total-price");
 const bookingForm = document.getElementById("booking-form");
 
-// Format Rupiah
 function formatRupiah(angka) {
   return "Rp " + angka.toLocaleString("id-ID");
 }
 
-// Render Daftar Layanan
+// Fungsi menampilkan semua layanan
 function renderServices() {
   const filtered = services.filter((item) => {
     const matchCategory = currentCategory === "semua" || item.category === currentCategory;
@@ -95,7 +93,7 @@ function renderServices() {
   });
 
   if (filtered.length === 0) {
-    serviceGrid.innerHTML = `<p style="color:#9ca3af;">Layanan tidak ditemukan.</p>`;
+    serviceGrid.innerHTML = `<p style="color:#a3a3a3;">Layanan tidak ditemukan.</p>`;
     return;
   }
 
@@ -122,7 +120,6 @@ function renderServices() {
     .join("");
 }
 
-// Tambah Layanan ke Keranjang
 function addToCart(id) {
   const selected = services.find((s) => s.id === id);
   if (selected) {
@@ -131,13 +128,11 @@ function addToCart(id) {
   }
 }
 
-// Hapus Item dari Keranjang
 function removeFromCart(index) {
   cart.splice(index, 1);
   updateCartUI();
 }
 
-// Perbarui Tampilan Modal Keranjang
 function updateCartUI() {
   cartCount.textContent = cart.length;
 
@@ -159,7 +154,7 @@ function updateCartUI() {
         <div class="cart-item">
           <div>
             <strong>${item.name}</strong><br />
-            <small>${formatRupiah(item.price)} • ${item.duration} mnt</small>
+            <small>${formatRupiah(item.price)} •${item.duration} mnt</small>
           </div>
           <button class="remove-btn" onclick="removeFromCart(${idx})">Hapus</button>
         </div>
@@ -171,7 +166,6 @@ function updateCartUI() {
   totalPriceEl.textContent = formatRupiah(totalPrice);
 }
 
-// Event Listener Filter Kategori
 filterBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     filterBtns.forEach((b) => b.classList.remove("active"));
@@ -181,17 +175,14 @@ filterBtns.forEach((btn) => {
   });
 });
 
-// Event Listener Pencarian
 searchInput.addEventListener("input", (e) => {
   searchQuery = e.target.value;
   renderServices();
 });
 
-// Buka & Tutup Modal
 btnCart.addEventListener("click", () => cartModal.classList.remove("hidden"));
 closeModal.addEventListener("click", () => cartModal.classList.add("hidden"));
 
-// Submit Booking
 bookingForm.addEventListener("submit", (e) => {
   e.preventDefault();
   if (cart.length === 0) {
@@ -204,7 +195,7 @@ bookingForm.addEventListener("submit", (e) => {
   const date = document.getElementById("booking-date").value;
 
   alert(
-    `Booking Berhasil!\n\nNama: ${name}\nKendaraan: ${vehicle}\nTanggal: ${date}\nJumlah Layanan: ${cart.length} item`
+    `Booking Berhasil!\n\nNama: ${name}\nKendaraan:${vehicle}\nTanggal: ${date}\nJumlah Layanan:${cart.length} item`
   );
 
   cart = [];
@@ -213,5 +204,5 @@ bookingForm.addEventListener("submit", (e) => {
   cartModal.classList.add("hidden");
 });
 
-// Jalankan Render Awal
+// Baris wajib agar semua layanan langsung muncul saat halaman dibuka:
 renderServices();
