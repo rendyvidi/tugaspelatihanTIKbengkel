@@ -1,13 +1,12 @@
-/* Reset & Variabel Warna */
 :root {
-  --bg-dark: #0f1115;
-  --bg-card: #181b21;
-  --bg-input: #22262f;
-  --accent: #ff5722;
-  --accent-hover: #e64a19;
-  --text-main: #f3f4f6;
-  --text-muted: #9ca3af;
-  --border-color: #2d323e;
+  --bg-dark: #0a0a0a;
+  --bg-card: #141414;
+  --bg-input: #1f1f1f;
+  --accent: #facc15;
+  --accent-hover: #eab308;
+  --text-main: #ffffff;
+  --text-muted: #a3a3a3;
+  --border-color: #2e2e2e;
 }
 
 * {
@@ -32,7 +31,7 @@ body {
 /* Navbar */
 .navbar {
   background-color: var(--bg-card);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--accent);
   padding: 16px 0;
   position: sticky;
   top: 0;
@@ -52,15 +51,16 @@ body {
 }
 
 .logo-icon {
-  font-size: 28px;
+  font-size: 26px;
   background: var(--accent);
+  color: #0a0a0a;
   padding: 8px 12px;
   border-radius: 10px;
 }
 
 .brand h1 {
   font-size: 1.2rem;
-  letter-spacing: 0.5px;
+  color: var(--accent);
 }
 
 .brand p {
@@ -70,11 +70,11 @@ body {
 
 .cart-btn {
   background-color: var(--accent);
-  color: white;
+  color: #0a0a0a;
   border: none;
   padding: 10px 18px;
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -128,6 +128,7 @@ body {
   border: 1px solid var(--border-color);
   padding: 8px 16px;
   border-radius: 20px;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -135,7 +136,7 @@ body {
 .filter-btn.active,
 .filter-btn:hover {
   background-color: var(--accent);
-  color: white;
+  color: #0a0a0a;
   border-color: var(--accent);
 }
 
@@ -154,7 +155,7 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s;
+  transition: transform 0.2s, border-color 0.2s;
 }
 
 .card:hover {
@@ -166,7 +167,7 @@ body {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  background-color: #252932;
+  background-color: #1f1f1f;
 }
 
 .card-body {
@@ -179,10 +180,10 @@ body {
 .badge {
   display: inline-block;
   width: fit-content;
-  background-color: rgba(255, 87, 34, 0.15);
+  background-color: rgba(250, 204, 21, 0.15);
   color: var(--accent);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 4px 10px;
   border-radius: 6px;
   margin-bottom: 8px;
@@ -214,7 +215,7 @@ body {
 .price {
   font-weight: bold;
   font-size: 1.05rem;
-  color: #4ade80;
+  color: var(--accent);
 }
 
 .add-btn {
@@ -224,13 +225,14 @@ body {
   border: 1px solid var(--border-color);
   padding: 10px;
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s;
 }
 
 .add-btn:hover {
   background-color: var(--accent);
+  color: #0a0a0a;
   border-color: var(--accent);
 }
 
@@ -238,7 +240,7 @@ body {
 .modal {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.85);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -252,7 +254,7 @@ body {
 
 .modal-content {
   background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--accent);
   border-radius: 12px;
   width: 100%;
   max-width: 480px;
@@ -314,7 +316,7 @@ body {
 
 .summary-row.total {
   font-size: 1.15rem;
-  color: #4ade80;
+  color: var(--accent);
 }
 
 .booking-form {
@@ -333,11 +335,11 @@ body {
 
 .submit-btn {
   background-color: var(--accent);
-  color: white;
+  color: #0a0a0a;
   border: none;
   padding: 12px;
   border-radius: 8px;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
   margin-top: 6px;
 }
